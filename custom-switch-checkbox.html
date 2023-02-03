@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Custom CheckBox</title>
+        <!-- checkbox stil -->
+        <style>
+            .switch {
+                display: inline-block;
+                height: 40px;
+                position: relative;
+                width: 250px;
+
+            }
+
+            .switch input {
+                display: none;
+            }
+
+            .slider {
+                background-color: #1fa705;
+                bottom: 0;
+                cursor: pointer;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: 0.4s;
+            }
+
+            .slider:before {
+                background-color: #fff;
+                bottom: 4px;
+                content: "";
+                height: 32px;
+                left: 4px;
+                position: absolute;
+                transition: 0.4s;
+                width: 125px;
+            }
+
+            input:checked+.slider {
+                background-color: #1fa705;
+            }
+
+            input:checked+.slider:before {
+                transform: translateX(117px);
+            }
+
+            .slider.round {
+                border-radius: 34px;
+                width: 250px;
+            }
+
+            .slider.round:before {
+                border-radius: 50px;
+            }
+
+            .slider-text-left {
+                position: absolute;
+                bottom: 11px;
+                left: 25px;
+                font-weight: 600;
+                -webkit-user-select: none;
+                /* Safari */
+                -ms-user-select: none;
+                /* IE 10 and IE 11 */
+                user-select: none;
+                /* Standard syntax */
+            }
+
+            input:checked+.slider > .slider-text-left {
+                color: #fff;
+                transition: 0.4s;
+            }
+
+            .slider-text-right {
+                position: absolute;
+                bottom: 11px;
+                right: 35px;
+                color: #fff;
+                font-weight: 600;
+                -webkit-user-select: none;
+                /* Safari */
+                -ms-user-select: none;
+                /* IE 10 and IE 11 */
+                user-select: none;
+                /* Standard syntax */
+            }
+
+            input:checked+.slider > .slider-text-right {
+                color: #38444f;
+                transition: 0.4s;
+            }
+
+            label {
+                margin-bottom: 0;
+            }
+
+            @media(min-width:768px) and(max-width:1079.98px) {
+                .slider-text-left {
+                    position: absolute;
+                    bottom: 8px;
+                    left: 25px;
+                    font-weight: 600;
+                    -webkit-user-select: none;
+                    /* Safari */
+                    -ms-user-select: none;
+                    /* IE 10 and IE 11 */
+                    user-select: none;
+                    /* Standard syntax */
+                }
+
+                .slider-text-right {
+                    position: absolute;
+                    bottom: 8px;
+                    right: 35px;
+                    color: #fff;
+                    font-weight: 600;
+                    -webkit-user-select: none;
+                    /* Safari */
+                    -ms-user-select: none;
+                    /* IE 10 and IE 11 */
+                    user-select: none;
+                    /* Standard syntax */
+                }
+            }
+
+            @media(max-width:767.98px) {
+                .switch {
+                    display: inline-block;
+                    height: 50px;
+                    position: relative;
+                    width: 95vw;
+                    margin-bottom: 14px;
+                }
+
+                .slider.round {
+                    border-radius: 5px;
+                    width: 95vw;
+                }
+
+                .slider:before {
+                    background-color: #fff;
+                    bottom: 4px;
+                    content: "";
+                    height: 42px;
+                    left: 4px;
+                    position: absolute;
+                    transition: 0.4s;
+                    width: 47.5vw;
+                }
+
+                input:checked+.slider:before {
+                    transform: translateX(45.5vw);
+                }
+
+                .slider-text-left {
+                    position: absolute;
+                    bottom: 16px;
+                    left: 14vw;
+                    font-weight: 600;
+
+                }
+
+                .slider-text-right {
+                    position: absolute;
+                    bottom: 16px;
+                    right: 16vw;
+                    color: #fff;
+                    font-weight: 600;
+                }
+
+                .slider.round:before {
+                    border-radius: 5px;
+                }
+
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <label class="switch" for="checkbox">
+                <input type="checkbox" id="checkbox"/>
+                <div class="slider round">
+                    <span class="slider-text-left">Seçenek 1</span>
+                    <span class="slider-text-right">Seçenek 2</span>
+                </div>
+            </label>
+        </div>
+    </body>
+</html>
