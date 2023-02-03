@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Select Bar</title>
+        <!-- Bootstrap 5 Css-->
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <!-- Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- Font Awesome 6 -->
+        <script src="https://kit.fontawesome.com/a7e719b2fb.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <style>
+
+            #search-dropdown-menu-e {
+                position: absolute;
+                top: 52px;
+                list-style: none;
+                background-color: #fff;
+                border-radius: 5px;
+                line-height: 30px;
+                display: none;
+                overflow: hidden;
+            }
+
+            .search-button-e {
+                height: 50px;
+                margin-left: -50px;
+                z-index: 1;
+                text-align: right;
+                width: 175px;
+                padding-right: 10px;
+                border: none;
+                border-radius: 0 10px 10px 0;
+                background-color: #000;
+                color: #fff;
+            }
+
+            #search-box-wrapper-e {
+                display: flex;
+                position: relative;
+                cursor: pointer;
+                user-select: none;
+            }
+
+            #search-box-e {
+                z-index: 9999;
+                background-color: #fff;
+                padding: 10px;
+                border-radius: 10px 50px 50px 10px;
+                display: flex;
+                align-items: center;
+                height: 50px;
+                width: 400px;
+                justify-content: space-between;
+            }
+
+            ul#search-dropdown-menu-e li {
+                margin-left: -2rem;
+            }
+
+            ul#search-dropdown-menu-e li:hover {
+                background-color: green;
+                color: white;
+            }
+
+
+            ul#search-dropdown-menu-e li p {
+                margin-bottom: 0;
+                margin-left: 1rem;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .adress-box-e {
+                display: flex;
+                align-items: center;
+            }
+
+            #selected-adress-e {
+                margin-bottom: 0;
+                max-width: 300px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        </style>
+
+        <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh; background-color: #d7d7d7;">
+
+
+            <div id="search-box-wrapper-e">
+                <div id="search-box-e">
+                    <div class="adress-box-e">
+                        <span class="fa fa-map" style="color: green; margin-right: 15px;"></span>
+                        <p id="selected-adress-e">
+                            Adres Seçiniz</p>
+                    </div>
+
+                    <span class="fa fa-angle-down" style="color: green; margin-left: 15px;"></span>
+
+                </div>
+                <button class="search-button-e">
+                    Mağaza Listele
+                </button>
+                <ul id="search-dropdown-menu-e">
+                    <li>
+                        <p>Mevlana Mahallesi, 865. Sokak, Ahmet Caddesi, Daiğre 15: megksdfs  fdsdsadasdas</p>
+                    </li>
+                    <li>
+                        <p>Adres 2</p>
+                    </li>
+                    <li>
+                        <p>Adres 3</p>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+        <script>
+            var width = $("#search-box-wrapper-e").width();
+            $("#search-dropdown-menu-e").width(width - 32);
+
+            $("#search-box-e").click(function () {
+                $("#search-dropdown-menu-e").toggle();
+                event.stopPropagation();
+            })
+
+            $("ul#search-dropdown-menu-e li").on('click', function () {
+                $("#selected-adress-e").text($(this).text());
+                $("#search-dropdown-menu-e").toggle();
+
+            })
+
+            $(window).click(function () {
+                $("#search-dropdown-menu-e").hide();
+            });
+        </script>
+
+        <!-- Bootstrap 5 JS  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </body>
+</html>
