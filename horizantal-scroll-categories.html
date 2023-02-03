@@ -358,7 +358,7 @@
             var lastScroll = 0;
             $(document).scroll(function () {
 
-                var h = $('#pageHeader').outerHeight() + $('#one').prev('nav').outerHeight() + $('#one').outerHeight() + 50;
+                var h = $('#pageHeader').outerHeight() + $('#one').prev('nav').outerHeight() + $('#one').outerHeight() + 50; // Otomatik kategori kaydırması için bu alanın hesaplamasını değiştirmek gerekir.
                 var last = null;
                 $('.main-products-wrapper').each(function (i, el) {
                     if (parseInt($(this).offset().top - $(window).scrollTop()) < parseInt(h)) {
