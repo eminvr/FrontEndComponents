@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sablon</title>
+        <!-- Bootstrap 5 Css-->
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <!-- Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- Font Awesome 6 -->
+        <script src="https://kit.fontawesome.com/a7e719b2fb.js" crossorigin="anonymous"></script>
+        <style>
+            body {
+                background-color: #e9e9e9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <style>
+            .ev-dropdown-wrapper {
+                position: relative;
+            }
+
+            .ev-dropdown-button {
+                border: none;
+                background-color: #fff;
+                color: #252525;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+                height: 45px;
+            }
+            .ev-dropdown-menu {
+                background-color: #fff;
+                border-radius: 5px;
+                position: absolute;
+                top: 47px;
+                z-index: 999;
+                min-width: 150%;
+                width: auto;
+                box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+                overflow: hidden;
+                display: none;
+            }
+
+            .ev-dropdown-menu > ul {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 0;
+            }
+
+            .ev-dropdown-item {
+                background-color: white;
+                color: #252525;
+                display: block;
+                padding: 7px 10px;
+                white-space: nowrap;
+                cursor: pointer;
+            }
+            .ev-dropdown-item:hover {
+                background-color: #1fa705;
+                color: #fff;
+                display: block;
+                padding: 7px 10px;
+            }
+        </style>
+
+        <div class="ev-dropdown-wrapper">
+            <button class="ev-dropdown-button" data-ev-name="dropdown" data-ev-toggle="dropdown1">
+                Dropdown
+                <i class="fa-solid fa-caret-down" style="margin-left: 5px;"></i>
+            </button>
+
+            <div class="ev-dropdown-menu" id="dropdown1">
+                <ul>
+                    <li><a class="ev-dropdown-item">Seçenek 1</a></li>
+                    <li><a class="ev-dropdown-item">Seçenek 2</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+            $("button[data-ev-name='dropdown']").click(function () {
+                let dropdown ="#" + $(this).attr("data-ev-toggle");
+                $(dropdown).toggle();
+                event.stopPropagation();
+            })
+
+            $(".ev-dropdown-item").click(function(){
+                $(this).parents(".ev-dropdown-menu").hide();
+            })
+            $(window).click(function () {
+                $(".ev-dropdown-menu").hide();
+            });
+        </script>
+
+        <!-- Bootstrap 5 JS  -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </body>
+</html>
