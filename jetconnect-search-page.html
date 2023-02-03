@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sablon</title>
+        <!-- Bootstrap 5 Css-->
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <!-- Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- Font Awesome 6 -->
+        <script src="https://kit.fontawesome.com/a7e719b2fb.js" crossorigin="anonymous"></script>
+
+        <style>
+            body {
+                background-color: #f7f7f7;
+            }
+
+            .jet-search-header {
+                background-color: #1fa705;
+                height: 60px;
+            }
+
+            .jet-category-wrapper {
+                height: 45px;
+                display: none;
+            }
+
+            .jet-category-buttons {
+                padding: 5px;
+                width: 100%;
+                background-color: white;
+                border: none;
+                font-weight: 600;
+                height: 100%;
+                color: #656565;
+            }
+
+            .jet-category-buttons:active {
+                border-bottom: 3px solid #1fa705;
+                color: #1fa705;
+            }
+
+            .search-box-input {
+                width: 100%;
+            }
+            .input-group-text {
+                background-color: #fff;
+                border: none;
+                border-radius: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+            .form-control {
+                border: none;
+                border-radius: 0;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                height: 50px;
+
+            }
+            .form-control:focus {
+                box-shadow: none;
+
+            }
+
+            .jet-search-title {
+                color: #3e3e3e;
+                margin-bottom: 0;
+                font-weight: 600;
+                font-size: 14px;
+            }
+
+            .jet-search-history-div {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                border-top: 1px solid #f7f7f7;
+            }
+
+            .jet-search-history-div:first-child {
+                border-top: none;
+            }
+
+            .jet-filtered-other-store-img {
+                --img-width: 55px;
+                --img-height: 55px;
+                width: var(--img-width);
+                min-width: var(--img-width);
+                max-width: var(--img-width);
+                height: var(--img-height);
+                min-height: var(--img-height);
+                max-height: var(--img-height);
+                border-radius: 6px;
+            }
+
+            .jet-store-name {
+                font-weight: 600;
+                font-size: 14px;
+                color: #252525;
+                margin-bottom: 0;
+            }
+            .jet-store-info {
+                font-weight: 600;
+                font-size: 11px;
+                color: #3e3e3e;
+                margin-bottom: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .jet-filtered-other-store-product-img {
+                --img-width: 85px;
+                --img-height: 85px;
+                width: var(--img-width);
+                min-width: var(--img-width);
+                max-width: var(--img-width);
+                height: var(--img-height);
+                min-height: var(--img-height);
+                max-height: var(--img-height);
+                border-radius: 6px;
+                border: 1px solid #e6e6e6;
+            }
+
+            .jet-product-price {
+                color: #1fa705;
+                font-size: 14px;
+                margin-bottom: -2px;
+                font-weight: 600;
+            }
+            .jet-product-name {
+                color: #252525;
+                font-size: 13px;
+                margin-bottom: -2px;
+                font-weight: 600;
+            }
+            .jet-product-spec {
+                color: #656565;
+                font-size: 13px;
+                margin-bottom: 0;
+                font-weight: 600;
+            }
+
+            .jet-filtered-other-store-product-card {
+                width: 29%;
+            }
+
+            .jet-filtered-other-store-overflow {
+                overflow-x: scroll;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .jet-filtered-other-store-overflow::-webkit-scrollbar {
+                display: none;
+            }
+            .name-limit {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                line-clamp: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid position-sticky top-0">
+            <div class="row">
+                <div class="col-12 jet-search-header d-flex align-items-center">
+                    <i class="fa-solid fa-angle-left" style="color: white; font-size: 1.75em;"></i>
+                    <p class="mb-0 ms-2 text-white fw-semibold">Arama</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 p-0">
+                    <div class="input-group shadow-sm">
+                        <label class="input-group-text" for="search-box-input">
+                            <i class="fa-solid fa-search" style="color: #1fa705;"></i>
+                        </label>
+                        <input type="text" class="form-control" id="search-box-input" placeholder="Jetconnect'te Ara">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center bg-white shadow-sm jet-category-wrapper align-items-center">
+                <div class="col-3 p-0 h-100">
+                    <button class="jet-category-buttons">
+                        Market
+                    </button>
+                </div>
+                <div class="col-3 p-0 g-0 h-100">
+                    <button class="jet-category-buttons">
+                        Yemek
+                    </button>
+                </div>
+                <div class="col-3 p-0 g-0 h-100">
+                    <button class="jet-category-buttons">
+                        Esnaf
+                    </button>
+                </div>
+                <div class="col-3 p-0 g-0 h-100">
+                    <button class="jet-category-buttons">
+                        Su
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bir arama yapılmadığında -->
+        <div id="is-search-box-empty" class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-12 mb-2 d-flex justify-content-between align-items-center">
+                    <p class="jet-search-title">Arama Geçmişi</p>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+                <div class="col-12 shadow-sm bg-white ">
+                    <div class="row jet-search-history-div">
+                        <p class="mb-0">Su</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bir arama yapılmadığında SON-->
+
+
+        <!-- Market, Esnaf ve Su Aramalarında Gösterilecek Yapı -->
+        <div id="market-esnaf-su" class="container-fluid mt-3">
+            <div class="row mb-2">
+                <div class="col-12 mb-2 ">
+                    <p class="jet-search-title">Arama Sonuçları</p>
+                </div>
+            </div>
+            <div
+                class="row ">
+                <!-- Döngüyle Basılacak Kısım Başlangıç-->
+                <div
+                    class="col-12 bg-white shadow-sm mb-3">
+                    <!-- Magazanın kendisi -->
+                    <div class="row py-2 d-flex">
+                        <div class="col-9">
+                            <a class="d-flex" href="">
+                                <img class="jet-filtered-other-store-img" src="https://images.pexels.com/photos/2460434/pexels-photo-2460434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                                <div class="ms-2">
+                                    <p class="jet-store-name name-limit">Tahir Kebap Dünyası</p>
+                                    <p class="jet-store-info">
+                                        <i class="fa-solid fa-clock" style="color: #1fa705;"></i>
+                                        40-45dk</p>
+                                    <p class="jet-store-info">
+                                        <i class="fa-solid fa-try" style="color: #1fa705;"></i>
+                                        Min. 75₺</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-3 p-0 pe-2 d-flex justify-content-end" style="height: fit-content;">
+                            <a href="">
+                                <div style="padding: 3px; border: 1px solid #e6e6e6; align-items: center; display:flex; border-radius: 50px; width: fit-content;">
+                                    <span style="font-size: 11px;">
+                                        <span style="font-weight: 600; color: #1fa705;">
+                                            <i class="fa-solid fa-star"></i>
+                                            4,5
+                                        </span>
+                                        <small>(200+)</small>
+
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Magazanın kendisi SON-->
+                    <hr style="color: #1fa705; margin: 10px 0px;">
+                    <div
+                        class="row d-flex flex-nowrap py-2 jet-filtered-other-store-overflow">
+                        <!-- Döngüyle Basılacak Ürünler -->
+                        <a href="" class="jet-filtered-other-store-product-card">
+                            <img class="jet-filtered-other-store-product-img" src="https://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                            <div class="mt-1">
+                                <p class="jet-product-price">₺18,50</p>
+                                <p class="jet-product-name name-limit">Erikli Su</p>
+                                <p class="jet-product-spec">5L</p>
+                            </div>
+                        </a>
+                        <!-- Döngüyle Basılacak Ürünler SON -->
+                    </div>
+                </div>
+                <!-- Döngüyle Basılacak Kısım SON-->
+            </div>
+        </div>
+        <!-- Market, Esnaf ve Su Aramalarında Gösterilecek Yapı SON -->
+
+
+        <!-- Yemek Aramalarında Gösterilecek Yapı -->
+        <div id="yemek" class="container-fluid mt-3">
+            <div class="row mb-2">
+                <div class="col-12 mb-2 ">
+                    <p class="jet-search-title">Arama Sonuçları</p>
+                </div>
+            </div>
+            <div
+                class="row ">
+                <!-- Döngüyle Basılacak Kısım Başlangıç-->
+                <div
+                    class="col-12 bg-white shadow-sm mb-3">
+                    <!-- Magazanın kendisi -->
+                    <div class="row py-2 d-flex">
+                        <div class="col-9">
+                            <a class="d-flex" href="">
+                                <img class="jet-filtered-other-store-img" src="https://images.pexels.com/photos/2460434/pexels-photo-2460434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                                <div class="ms-2">
+                                    <p class="jet-store-name name-limit">Tahir Kebap Dünyası</p>
+                                    <p class="jet-store-info">
+                                        <i class="fa-solid fa-clock" style="color: #1fa705;"></i>
+                                        40-45dk</p>
+                                    <p class="jet-store-info">
+                                        <i class="fa-solid fa-try" style="color: #1fa705;"></i>
+                                        Min. 75₺</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-3 p-0 pe-2 d-flex justify-content-end" style="height: fit-content;">
+                            <a href="">
+                                <div style="padding: 3px; border: 1px solid #e6e6e6; align-items: center; display:flex; border-radius: 50px; width: fit-content;">
+                                    <span style="font-size: 11px;">
+                                        <span style="font-weight: 600; color: #1fa705;">
+                                            <i class="fa-solid fa-star"></i>
+                                            4,5
+                                        </span>
+                                        <small>(200+)</small>
+
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Magazanın kendisi SON-->
+                    <hr style="color: #1fa705; margin: 10px 0px;">
+                    <div
+                        class="row">
+                        <!-- Döngüyle Basılacak Ürünler -->
+                        <div class="col-12">
+                            <a href="">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <p class="jet-product-name name-limit">Güveçte Sufle</p>
+                                    </div>
+                                    <div class="col-3 d-flex justify-content-end">
+                                        <p class="jet-product-price">₺85,00</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr style="color: #1fa705; margin: 10px 0px;">
+                        </div>
+
+                        <!-- Döngüyle Basılacak Ürünler SON -->
+                    </div>
+                </div>
+
+                <!-- Döngüyle Basılacak Kısım SON-->
+            </div>
+        </div>
+        <!-- Yemek Aramalarında Gösterilecek Yapı SON -->
+
+
+    </body>
+</html>
+<script>
+    $("#search-box-input").keyup(function () {
+        if ($("#search-box-input").val().length < 1) {
+            $(".jet-category-wrapper").slideUp(100);
+            $("#is-search-box-empty").slideDown(100);
+            $("#market-esnaf-su").hide();
+
+        } else {
+            $(".jet-category-wrapper").slideDown(100);
+            $(".jet-category-wrapper").css({display: "flex"});
+            $("#is-search-box-empty").slideUp(100);
+            $("#market-esnaf-su").show();
+
+        }
+    })
+</script><!-- Bootstrap 5 JS  --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script></body></html>
