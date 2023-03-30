@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sablon</title>
+        <!-- Bootstrap 3 CSS -->
+        <!-- Latest compiled and minified CSS -->
+        <link
+        rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- Font Awesome 6 -->
+        <script src="https://kit.fontawesome.com/a7e719b2fb.js" crossorigin="anonymous"></script>
+
+        <style></style>
+    </head>
+    <body>
+        <button class="jet-left-menu-button">test</button>
+
+        <div id="left-filter-menu" style="width: 30vw; height: 100vh; background-color: chartreuse;">
+
+            <div style="height: 30vh; background-color: aqua;"></div>
+            <div style="height: 70vh; background-color: beige; overflow-y: scroll;">
+            
+            <ul>
+                <li>satır 1</li>
+                <li>satır 2</li>
+                <li>satır 3</li>
+                <li>satır 4</li>
+                <li>satır 5</li>
+                <li>satır 6</li>
+                <li>satır 7</li>
+                <li>satır 8</li>
+                <li>satır 9</li>
+                <li>satır 10</li>
+                <li>satır 11</li>
+                <li>satır 12</li>
+                <li>satır 13</li>
+                <li>satır 14</li>
+                <li>satır 15</li>
+                <li>satır 16</li>
+                <li>satır 17</li>
+                <li>satır 18</li>
+                <li>satır 19</li>
+                <li>satır 20</li>
+                <li>satır 21</li>
+                <li>satır 22</li>
+                <li>satır 23</li>
+                <li>satır 24</li>
+                <li>satır 25</li>
+                <li>satır 26</li>
+                <li>satır 27</li>
+                <li>satır 28</li>
+                <li>satır 29</li>
+                <li>satır 30</li>
+                <li>satır 31</li>
+                <li>satır 32</li>
+                <li>satır 33</li>
+                <li>satır 34</li>
+                <li>satır 35</li>
+                <li>satır 36</li>
+                <li>satır 37</li>
+                <li>satır 38</li>
+                <li>satır 39</li>
+                <li>satır 40</li>
+            </ul>
+            </div>
+        </div>
+
+
+        <script>
+            $(".jet-left-menu-button").click(function () {
+                $("#left-filter-menu").animate({
+                    width: 'toggle'
+                }, 450);
+                event.stopPropagation();
+            })
+            $("#left-filter-menu").click(function () {
+                event.stopPropagation();
+            })
+            $(window).click(function () {
+                $("#left-filter-menu").animate({
+                    width: 'hide'
+                }, 450);
+            });
+        </script>
+
+        <!-- Bootstrap 3 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    </body>
+</html>
