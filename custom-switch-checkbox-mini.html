@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Custom CheckBox</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <!-- checkbox stil -->
+        <style>:root
+        {
+            --switch-width: 40px;
+            --switch-height: 20px;
+            --switch-animation-duration: 0.25s;
+            --switch-not-checked-bg-color: #DDD;
+            --switch-checked-bg-color: #ef6521;
+            --switch-key-width: calc(var(--switch-height) - 8px);
+            --switch-key-height: calc(var(--switch-height) - 8px);
+            --switch-key-border-radius: var(--switch-key-width);
+            --switch-key-area-length: calc(var(--switch-width) / 2);
+            --switch-key-color: #fff;
+        }
+
+        .switch {
+            display: inline-block;
+            height: var(--switch-height);
+            position: relative;
+            width: var(--switch-width);
+
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: var(--switch-not-checked-bg-color);
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            background-color: var(--switch-key-color);
+            bottom: 4px;
+            content: "";
+            height: var(--switch-key-height);
+            left: 4px;
+            position: absolute;
+            transition: var(--switch-animation-duration);
+            width: var(--switch-key-width);
+        }
+
+        input:checked+.slider {
+            background-color: var(--switch-checked-bg-color);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(var(--switch-key-area-length));
+        }
+
+        .slider.round {
+            border-radius: var(--switch-key-border-radius);
+            width: var(--switch-width);
+        }
+
+        .slider.round:before {
+            border-radius: var(--switch-key-border-radius);
+        }
+
+        label {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label class="switch" for="checkbox">
+            <input type="checkbox" id="checkbox"/>
+            <div class="slider round"></div>
+        </label>
+        asdada
+    </div>
+
+    <script>
+        $("input").on("click", function () {
+            if ($("input").is(":checked")) {
+                console.log("CHECKED");
+            } else {
+                console.log("NOT CHECKED");
+            }
+
+        })
+    </script>
+</body></html>
